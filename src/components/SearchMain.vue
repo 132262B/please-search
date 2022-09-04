@@ -1,150 +1,6 @@
 <template>
   <div class="text-gray-700">
-    <!-- ========== { HEADER }==========  -->
-    <header class="top-0 left-0 right-0 z-10 bg-gray-50">
-      <nav class="main-nav">
-        <div class="container xl:max-w-6xl mx-auto px-4">
-          <div class="lg:flex lg:justify-between">
-            <div class="flex justify-between">
-              <div
-                class="
-                  mx-w-10
-                  text-4xl
-                  font-bold
-                  capitalize
-                  text-gray-900
-                  flex
-                  items-center
-                "
-              >
-                Please Search
-              </div>
-              <!-- mobile nav -->
-              <div class="flex flex-row items-center py-4 lg:py-0">
-                <div
-                  class="
-                    relative
-                    text-gray-900
-                    hover:text-black
-                    block
-                    lg:hidden
-                  "
-                >
-                  <button
-                    type="button"
-                    class="
-                      menu-mobile
-                      block
-                      py-3
-                      px-6
-                      border-b-2 border-transparent
-                    "
-                  ></button>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex flex-row">
-              <!-- nav menu -->
-              <ul
-                class="
-                  navbar
-                  bg-white
-                  lg:bg-transparent
-                  w-full
-                  hidden
-                  text-center
-                  lg:text-left lg:flex lg:flex-row
-                  text-gray-900 text-sm
-                  items-center
-                  font-bold
-                "
-              >
-                <li class="relative hover:text-black">
-                  <a
-                    class="
-                      active
-                      block
-                      py-3
-                      lg:py-7
-                      px-6
-                      border-b-2 border-transparent
-                    "
-                    href="#hero"
-                    >Home</a
-                  >
-                </li>
-                <li class="relative hover:text-black">
-                  <a
-                    class="
-                      block
-                      py-3
-                      lg:py-7
-                      px-6
-                      border-b-2 border-transparent
-                    "
-                    href="#services"
-                    >What we do</a
-                  >
-                </li>
-                <li class="relative hover:text-black">
-                  <a
-                    class="
-                      block
-                      py-3
-                      lg:py-7
-                      px-6
-                      border-b-2 border-transparent
-                    "
-                    href="#portfolio"
-                    >Our works</a
-                  >
-                </li>
-                <li class="relative hover:text-black">
-                  <a
-                    class="
-                      block
-                      py-3
-                      lg:py-7
-                      px-6
-                      border-b-2 border-transparent
-                    "
-                    href="#clients"
-                    >Clients</a
-                  >
-                </li>
-                <li class="relative hover:text-black">
-                  <a
-                    class="
-                      block
-                      py-3
-                      lg:py-7
-                      px-6
-                      border-b-2 border-transparent
-                    "
-                    href="#team"
-                    >Team</a
-                  >
-                </li>
-                <li class="relative hover:text-black">
-                  <a
-                    class="
-                      block
-                      py-3
-                      lg:py-7
-                      px-6
-                      border-b-2 border-transparent
-                    "
-                    href="#contact"
-                    >Contact</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <mainHeader />
     <!-- end header -->
 
     <main>
@@ -350,12 +206,12 @@
       <!-- end Hero -->
 
       <!-- start services -->
-      <div id="services" class="section pt-20 pb-8 md:pt-16 md:pb-0 bg-white">
+      <div id="creat" class="section pt-20 pb-8 md:pt-16 md:pb-0 bg-white">
         <div class="container xl:max-w-6xl mx-auto px-4">
           <!-- Heading start -->
           <header class="text-center mx-auto mb-12 lg:px-20">
             <h2 class="text-2xl leading-normal mb-2 font-bold text-black">
-              What We Do
+              creat URL
             </h2>
             <svg
               version="1.1"
@@ -412,10 +268,7 @@
 
           <!-- row -->
           <div class="flex flex-wrap flex-row -mx-4 text-center">
-            <div
-              class="flex-shrink px-4 max-w-full w-full wow fadeInUp"
-              data-wow-duration="1s"
-            >
+            <div class="flex-shrink px-4 max-w-full w-full wow fadeInUp">
               <!-- service block -->
               <div
                 class="
@@ -533,11 +386,16 @@
 </template>
 
 <script>
+import mainHeader from "@/components/MainHeader.vue";
+
 export default {
   data() {
     return {
       img: require("@/assets/images/search.svg"),
     };
+  },
+  components: {
+    mainHeader,
   },
 };
 </script>
