@@ -10,7 +10,7 @@ const routes = [
         component: SearchMain,
     },
     {
-        path: "/g",
+        path: "/g/:searchWord",
         name: "Google",
         component: SearchGoogle,
     },

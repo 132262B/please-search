@@ -1,5 +1,8 @@
 <template>
-  <div></div>
+  <div>
+    asdasd
+    {{ $route.params.searchWord }}
+  </div>
 </template>
 
 <script>

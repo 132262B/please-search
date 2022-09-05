@@ -213,44 +213,7 @@
             <h2 class="text-2xl leading-normal mb-2 font-bold text-black">
               creat URL
             </h2>
-            <svg
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 100 60"
-              style="margin: 0 auto; height: 35px"
-              xml:space="preserve"
-            >
-              <circle
-                cx="50.1"
-                cy="30.4"
-                r="5"
-                class="stroke-primary"
-                style="
-                  fill: transparent;
-                  stroke-width: 2;
-                  stroke-miterlimit: 10;
-                "
-              ></circle>
-              <line
-                x1="55.1"
-                y1="30.4"
-                x2="100"
-                y2="30.4"
-                class="stroke-primary"
-                style="stroke-width: 2; stroke-miterlimit: 10"
-              ></line>
-              <line
-                x1="45.1"
-                y1="30.4"
-                x2="0"
-                y2="30.4"
-                class="stroke-primary"
-                style="stroke-width: 2; stroke-miterlimit: 10"
-              ></line>
-            </svg>
+
             <p
               class="
                 text-gray-500
@@ -267,49 +230,94 @@
           <!-- End heading -->
 
           <!-- row -->
-          <div class="flex flex-wrap flex-row -mx-4 text-center">
-            <div class="flex-shrink px-4 max-w-full w-full wow fadeInUp">
-              <!-- service block -->
-              <div
-                class="
-                  py-8
-                  px-12
-                  mb-12
-                  bg-gray-50
-                  border-b border-gray-100
-                  transform
-                  transition
-                  duration-300
-                  ease-in-out
-                  hover:-translate-y-2
-                "
-              >
-                <div class="inline-block text-gray-900 mb-4">
-                  <!-- icon -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2rem"
-                    height="2rem"
-                    fill="currentColor"
-                    class="bi bi-search"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                    />
-                  </svg>
-                </div>
-                <h3
-                  class="text-lg leading-normal mb-2 font-semibold text-black"
+          <div class="flex flex-wrap flex-row -mx-2 text-center">
+            <div class="px-4 max-w-full w-full">
+              <div class="flex justify-center">
+                <label
+                  for="search-dropdown"
+                  class="
+                    mb-2
+                    text-sm
+                    font-medium
+                    text-gray-900
+                    sr-only
+                    dark:text-gray-300
+                  "
+                  >Your Email</label
                 >
-                  SEO Services
-                </h3>
-                <p class="text-gray-500">
-                  This is a wider card with supporting text below as a natural
-                  content.
-                </p>
+                <select
+                  class="
+                    flex-shrink-0
+                    z-10
+                    inline-flex
+                    items-center
+                    py-2.5
+                    px-4
+                    text-sm
+                    font-medium
+                    text-center text-gray-900
+                    bg-gray-100
+                    border border-gray-300
+                    dark:border-gray-700 dark:text-white
+                    rounded-l-lg
+                    hover:bg-gray-200
+                  "
+                  type="button"
+                >
+                  <option>Where?</option>
+                  <option>Google</option>
+                  <option>stackoverflow</option>
+                </select>
+
+                <div class="relative w-6/12">
+                  <input
+                    type="search"
+                    id="search-dropdown"
+                    class="
+                      block
+                      p-2.5
+                      w-full
+                      z-20
+                      text-sm text-gray-900
+                      bg-gray-50
+                      rounded-r-lg
+                      border-l-gray-100 border-l-2 border border-gray-300
+                    "
+                    placeholder="Search"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    class="
+                      absolute
+                      top-0
+                      right-0
+                      p-2.5
+                      text-sm
+                      font-medium
+                      text-white
+                      bg-blue-700
+                      rounded-r-lg
+                    "
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
               </div>
-              <!-- end service block -->
             </div>
 
             <div
@@ -323,8 +331,6 @@
                 wow
                 fadeInUp
               "
-              data-wow-duration="1s"
-              data-wow-delay=".1s"
             >
               <!-- end service block -->
             </div>
@@ -340,8 +346,6 @@
                 wow
                 fadeInUp
               "
-              data-wow-duration="1s"
-              data-wow-delay=".3s"
             >
               <!-- end service block -->
             </div>
@@ -357,7 +361,6 @@
                 wow
                 fadeInUp
               "
-              data-wow-duration="1s"
             ></div>
 
             <div
@@ -371,8 +374,6 @@
                 wow
                 fadeInUp
               "
-              data-wow-duration="1s"
-              data-wow-delay=".1s"
             >
               <!-- end service block -->
             </div>
