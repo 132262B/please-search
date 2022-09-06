@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 import SearchMain from '@/components/SearchMain.vue'
-import SearchGoogle from '@/components/SearchGoogle.vue'
+import SearchGoogle from '@/components/search/SearchGoogle.vue'
 
 const routes = [
     {
