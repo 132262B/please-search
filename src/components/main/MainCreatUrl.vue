@@ -16,22 +16,42 @@
             <div class="flex justify-center">
               <div class="flex border rounded-xl sm:w-96 md:w-1/2">
                 <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Where?</label>
-                <select class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 list-none rounded-l-lg" type="button">
-                  <option>Where?</option>
-                  <option>Google</option>
-                  <option>stackoverflow</option>
+                <select v-model="selectBoxValue" @change="change" class="flex-shrink-0 z-10 inline-flex items-center bg-white py-2.5 px-4 text-sm font-medium text-center text-gray-900 w-40 list-none rounded-xl">
+                  <option v-for="list in selectList" :key="list" v-text="list.name" :value="list.value"></option>
                 </select>
 
-                <input type="search" class="block p-2.5 w-full z-20 bg-white rounded-r-lg list-none" placeholder="search word" required />
-                <button class="p-3 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-gray-800">Create</button>
+                <input type="search" class="block p-2.5 w-full z-20 bg-white rounded-r-lg list-none" placeholder="search word" v-model="searchWord" />
+                <button @click="creatUrl()" class="p-3 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-gray-800">CREATE</button>
               </div>
             </div>
           </div>
-          <div class="max-w-full w-full">
+          <div class="max-w-full w-full mt-10">
+            <span class="mb-4 font-bold">👀 Created Successfully. 👀</span>
             <div class="flex justify-center">
+              <!-- 로딩바 -->
+              <div>
+                <svg width="90" height="90" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#1c7ed6">
+                  <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">
+                    <circle cx="22" cy="22" r="6" stroke-opacity="0">
+                      <animate attributeName="r" begin="1.5s" dur="3s" values="6;22" calcMode="linear" repeatCount="indefinite" />
+                      <animate attributeName="stroke-opacity" begin="1.5s" dur="3s" values="1;0" calcMode="linear" repeatCount="indefinite" />
+                      <animate attributeName="stroke-width" begin="1.5s" dur="3s" values="2;0" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="22" cy="22" r="6" stroke-opacity="0">
+                      <animate attributeName="r" begin="3s" dur="3s" values="6;22" calcMode="linear" repeatCount="indefinite" />
+                      <animate attributeName="stroke-opacity" begin="3s" dur="3s" values="1;0" calcMode="linear" repeatCount="indefinite" />
+                      <animate attributeName="stroke-width" begin="3s" dur="3s" values="2;0" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="22" cy="22" r="8">
+                      <animate attributeName="r" begin="0s" dur="1.5s" values="6;1;2;3;4;5;6" calcMode="linear" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </svg>
+              </div>
+              <!-- 로딩바 종료 -->
               <div class="flex border rounded-xl sm:w-96 md:w-1/2">
-                <input type="search" class="block p-2.5 w-full z-20 bg-white rounded-r-lg list-none" placeholder="search word" required />
-                <button class="p-3 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-gray-800">Create</button>
+                <input type="text" class="block p-2.5 w-full z-20 bg-white rounded-xl" :value="inputUrl" />
+                <button class="animate-pulse p-3 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-gray-800">COPY</button>
               </div>
             </div>
           </div>
@@ -42,8 +62,53 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      searchWord: '',
+      selectBoxValue: '',
+      inputUrl: '',
+      selectList: [],
+    };
+  },
+  methods: {
+    getSelectList() {
+      const vm = this;
+
+      this.axios({
+        method: 'get',
+        url: '/data/select.json',
+      }).then(function (res) {
+        vm.selectList = res.data;
+      });
+    },
+    creatUrl() {
+      if (this.searchWord !== '' && this.selectBoxValue !== '') {
+        this.inputUrl = `${this.selectBoxValue}/${this.searchWord}`;
+      } else {
+        alert('생성할 데이터를 입력해주세요.');
+      }
+    },
+  },
+  created() {
+    this.getSelectList();
+  },
+};
 </script>
 
 <style>
+input,
+textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: rgb(0, 0, 0) url('@/assets/images/arrow_drop_down.png') no-repeat 98% center;
+  background-size: 20%;
+}
 </style>
