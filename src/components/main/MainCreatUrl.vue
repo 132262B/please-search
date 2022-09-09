@@ -52,7 +52,7 @@
               <!-- 로딩바 종료 -->
               <div v-if="resultStatus" class="flex border rounded-xl sm:w-96 md:w-1/2">
                 <input type="text" class="block p-2.5 w-full z-20 bg-white rounded-xl" :value="inputUrl" />
-                <button class="animate-pulse p-3 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-gray-800">COPY</button>
+                <button @click="copyURL(this.createUrlResult)" class="animate-pulse p-3 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-gray-800">COPY</button>
               </div>
             </div>
           </div>
@@ -63,12 +63,14 @@
 </template>
 
 <script>
+import { copyText } from 'vue3-clipboard';
+
 export default {
   data() {
     return {
       searchWord: '',
       selectBoxValue: '',
-      inputUrl: '',
+      createUrlResult: '',
       selectList: [],
       loadingStatus: false,
       resultStatus: false,
@@ -88,7 +90,7 @@ export default {
     },
     creatUrl() {
       if (this.searchWord !== '' && this.selectBoxValue !== '') {
-        this.inputUrl = `${this.origin}/${this.selectBoxValue}/${this.searchWord}`;
+        this.createUrlResult = `${this.origin}/${this.selectBoxValue}/${this.searchWord}`;
         this.resultStatus = false;
         this.loadingStatus = true;
 
@@ -105,6 +107,20 @@ export default {
   created() {
     this.getSelectList();
     this.origin = window.location.origin;
+  },
+  setup() {
+    const copyURL = copyResult => {
+      copyText(copyResult, undefined, error => {
+        if (error) {
+          alert("I didn't copy it!");
+          console.log(error);
+        } else {
+          alert('I copied it!');
+        }
+      });
+    };
+
+    return { copyURL };
   },
 };
 </script>
