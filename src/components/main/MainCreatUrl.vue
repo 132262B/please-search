@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div id="creat" class="section py-16 pb-8 bg-white mb-96">
+    <div id="creat" class="section py-16 pb-8 bg-white">
       <div class="container xl:max-w-6xl mx-auto px-4">
         <!-- Heading start -->
         <header class="text-center mx-auto mb-12 lg:px-20">
@@ -26,10 +26,11 @@
             </div>
           </div>
           <div class="max-w-full w-full mt-10">
-            <span class="mb-4 font-bold">👀 Created Successfully. 👀</span>
+            <span v-if="resultStatus" class="animate-pulse mb-4 font-bold">👀 Created Successfully. 👀</span>
             <div class="flex justify-center">
               <!-- 로딩바 -->
-              <div>
+
+              <div v-if="loadingStatus">
                 <svg width="90" height="90" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#1c7ed6">
                   <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">
                     <circle cx="22" cy="22" r="6" stroke-opacity="0">
@@ -49,7 +50,7 @@
                 </svg>
               </div>
               <!-- 로딩바 종료 -->
-              <div class="flex border rounded-xl sm:w-96 md:w-1/2">
+              <div v-if="resultStatus" class="flex border rounded-xl sm:w-96 md:w-1/2">
                 <input type="text" class="block p-2.5 w-full z-20 bg-white rounded-xl" :value="inputUrl" />
                 <button class="animate-pulse p-3 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-gray-800">COPY</button>
               </div>
@@ -69,6 +70,9 @@ export default {
       selectBoxValue: '',
       inputUrl: '',
       selectList: [],
+      loadingStatus: false,
+      resultStatus: false,
+      origin: '',
     };
   },
   methods: {
@@ -84,7 +88,15 @@ export default {
     },
     creatUrl() {
       if (this.searchWord !== '' && this.selectBoxValue !== '') {
-        this.inputUrl = `${this.selectBoxValue}/${this.searchWord}`;
+        this.inputUrl = `${this.origin}/${this.selectBoxValue}/${this.searchWord}`;
+        this.resultStatus = false;
+        this.loadingStatus = true;
+
+        const vm = this;
+        setTimeout(function () {
+          vm.loadingStatus = false;
+          vm.resultStatus = true;
+        }, 1000);
       } else {
         alert('생성할 데이터를 입력해주세요.');
       }
@@ -92,6 +104,7 @@ export default {
   },
   created() {
     this.getSelectList();
+    this.origin = window.location.origin;
   },
 };
 </script>
@@ -109,6 +122,6 @@ select {
   -moz-appearance: none;
   appearance: none;
   background: rgb(0, 0, 0) url('@/assets/images/arrow_drop_down.png') no-repeat 98% center;
-  background-size: 20%;
+  background-size: 15%;
 }
 </style>

@@ -3,6 +3,7 @@
     <main-header />
     <main-top />
     <main-creat-url />
+    <main-footer />
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import mainHeader from '@/components/main/MainHeader.vue';
 import mainTop from '@/components/main/MainTop.vue';
 import mainCreatUrl from '@/components/main/MainCreatUrl.vue';
+import mainFooter from '@/components/main/MainFooter.vue';
 
 export default {
   components: {
     mainHeader,
     mainTop,
     mainCreatUrl,
+    mainFooter,
   },
 };
 </script>

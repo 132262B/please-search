@@ -54,16 +54,7 @@ export default {
 .is-typed span.cursor {
   display: inline-block;
   width: 2px;
-  height: 50px;
-  background-color: black;
-  animation: blink 1s infinite;
-}
-
-.is-typed span.underscore {
-  display: inline-flex;
-  width: 10px;
-  height: 1px;
-  align-items: flex-end;
+  height: 45px;
   background-color: black;
   animation: blink 1s infinite;
 }
