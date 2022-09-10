@@ -51,7 +51,7 @@
               </div>
               <!-- 로딩바 종료 -->
               <div v-if="resultStatus" class="flex border rounded-xl sm:w-96 md:w-1/2">
-                <input type="text" class="block p-2.5 w-full z-20 bg-white rounded-xl" :value="inputUrl" />
+                <input type="text" class="block p-2.5 w-full z-20 bg-white rounded-xl" :value="createUrlResult" />
                 <button @click="copyURL(this.createUrlResult)" class="animate-pulse p-3 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-gray-800">COPY</button>
               </div>
             </div>
