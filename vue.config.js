@@ -7,7 +7,8 @@ module.exports = defineConfig({
 const path = require('path');
 
 module.exports = {
-
+  publicPath: '/plz_search',
+  outputDir: 'docs',
   configureWebpack: {
 
     resolve: {
