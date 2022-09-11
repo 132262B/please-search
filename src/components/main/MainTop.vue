@@ -13,7 +13,7 @@
           <div class="flex-shrink max-w-full px-4 w-full md:w-9/12 lg:w-1/2 self-center lg:pr-12">
             <div class="text-center lg:text-left mt-6 lg:mt-0">
               <div class="mb-12">
-                <h1 class="text-4xl leading-normal text-black font-bold mb-4">
+                <h1 class="text-4xl leading-normal text-black font-bold mb-4 top_writer">
                   <VueWriter :array="arr" :typeSpeed="70" :caret="cursor" />
                 </h1>
                 <p class="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">If you search for it, you can see everything</p>
@@ -47,11 +47,11 @@ export default {
 </script>
 
 <style scope>
-.is-typed span.typed {
+h1 .is-typed span.typed {
   color: black;
 }
 
-.is-typed span.cursor {
+h1 .is-typed span.cursor {
   display: inline-block;
   width: 2px;
   height: 45px;
@@ -59,7 +59,7 @@ export default {
   animation: blink 1s infinite;
 }
 
-.is-typed span.cursor.typing {
+h1 .is-typed span.cursor.typing {
   animation: none;
 }
 

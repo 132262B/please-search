@@ -8,7 +8,7 @@
           <div class="flex border rounded-3xl w-full">
             <span class="m-2 ml-4 align-middle text-gray-400 text-xl material-symbols-outlined"> search </span>
 
-            <span class="block p-2.5 w-full z-20 bg-white rounded-3xl list-none">
+            <span class="block p-2.5 w-full z-20 bg-white rounded-3xl list-none googleSearch">
               <VueWriter :array="searchWord" :typeSpeed="100" :eraseSpeed="9999999999" :caret="cursor" />
             </span>
           </div>
@@ -49,19 +49,19 @@ img {
   -o-user-drag: none;
 }
 
-.is-typed span.typed {
+.googleSearch .is-typed span.typed {
   color: black;
 }
 
-.is-typed span.cursor {
+.googleSearch .is-typed span.cursor {
   display: inline-block;
   width: 2px;
-  height: 20px;
+  height: 25px;
   background-color: black;
   animation: blink 1s infinite;
 }
 
-.is-typed span.cursor.typing {
+.googleSearch .is-typed span.cursor.typing {
   animation: none;
 }
 
