@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style>
+<style scope>
 .is-typed span.typed {
   color: black;
 }

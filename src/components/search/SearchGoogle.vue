@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style>
+<style scope>
 img {
   -webkit-user-select: none;
   -khtml-user-select: none;
