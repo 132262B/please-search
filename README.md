@@ -1,5 +1,11 @@
 # plz_search
 
+<center>
+<img src="./images/header-image.gif" width="auto" title="header-image"/>
+<br>
+(미리보기)
+</center>
+
 ## Project setup
 ```
 npm install
